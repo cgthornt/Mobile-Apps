@@ -9,12 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "ChecklistItem.h"
 
-// Wat?
-// @class AddItemViewController
+@class TableViewController;
+
+@protocol TableViewControllerDelegate <NSObject>
+
+- (void) tableViewControllerDidCancel: (TableViewController*) controller;
+- (void) tableViewController: (TableViewController*) controller didFinishAddingItem: (ChecklistItem *) item;
+
+@end
 
 @interface TableViewController : UITableViewController
 - (IBAction)Cancel:(id)sender;
 - (IBAction)Save:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (nonatomic, weak) id<TableViewControllerDelegate> delegate;
 
 @end

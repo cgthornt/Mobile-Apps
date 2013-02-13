@@ -16,22 +16,6 @@
 @implementation TableViewController
 
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
 -(NSIndexPath*) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     return nil;
 }
@@ -43,10 +27,16 @@
 }
 
 - (IBAction)Cancel:(id)sender {
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    [self.delegate tableViewControllerDidCancel:self];
+    // [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)Save:(id)sender {
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    ChecklistItem *item = [[ChecklistItem alloc] init];
+    item.text = self.textField.text;
+    item.checked = NO;
+    [self.delegate tableViewController:self didFinishAddingItem:item];
+    
+    //[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 @end

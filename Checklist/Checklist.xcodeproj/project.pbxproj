@@ -16,12 +16,12 @@
 		14DEF72116B9A99100E1E104 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14DEF71F16B9A99100E1E104 /* InfoPlist.strings */; };
 		14DEF72316B9A99100E1E104 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF72216B9A99100E1E104 /* main.m */; };
 		14DEF72716B9A99100E1E104 /* ChecklistAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF72616B9A99100E1E104 /* ChecklistAppDelegate.m */; };
-		14DEF72916B9A99100E1E104 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 14DEF72816B9A99100E1E104 /* Default.png */; };
-		14DEF72B16B9A99100E1E104 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14DEF72A16B9A99100E1E104 /* Default@2x.png */; };
 		14DEF72D16B9A99100E1E104 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14DEF72C16B9A99100E1E104 /* Default-568h@2x.png */; };
 		14DEF73016B9A99100E1E104 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14DEF72E16B9A99100E1E104 /* MainStoryboard.storyboard */; };
 		14DEF73316B9A99100E1E104 /* ChecklistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF73216B9A99100E1E104 /* ChecklistViewController.m */; };
 		14DEF73B16B9AE8500E1E104 /* ChecklistItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DEF73A16B9AE8500E1E104 /* ChecklistItem.m */; };
+		9DBB713116CC06FA00111533 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DBB712F16CC06FA00111533 /* Default.png */; };
+		9DBB713216CC06FA00111533 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DBB713016CC06FA00111533 /* Default@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,14 +39,14 @@
 		14DEF72416B9A99100E1E104 /* Checklist-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Checklist-Prefix.pch"; sourceTree = "<group>"; };
 		14DEF72516B9A99100E1E104 /* ChecklistAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChecklistAppDelegate.h; sourceTree = "<group>"; };
 		14DEF72616B9A99100E1E104 /* ChecklistAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChecklistAppDelegate.m; sourceTree = "<group>"; };
-		14DEF72816B9A99100E1E104 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		14DEF72A16B9A99100E1E104 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		14DEF72C16B9A99100E1E104 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		14DEF72F16B9A99100E1E104 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		14DEF73116B9A99100E1E104 /* ChecklistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChecklistViewController.h; sourceTree = "<group>"; };
 		14DEF73216B9A99100E1E104 /* ChecklistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChecklistViewController.m; sourceTree = "<group>"; };
 		14DEF73916B9AE8500E1E104 /* ChecklistItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChecklistItem.h; sourceTree = "<group>"; };
 		14DEF73A16B9AE8500E1E104 /* ChecklistItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChecklistItem.m; sourceTree = "<group>"; };
+		9DBB712F16CC06FA00111533 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
+		9DBB713016CC06FA00111533 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,12 +112,12 @@
 		14DEF71D16B9A99100E1E104 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9DBB712F16CC06FA00111533 /* Default.png */,
+				9DBB713016CC06FA00111533 /* Default@2x.png */,
 				14DEF71E16B9A99100E1E104 /* Checklist-Info.plist */,
 				14DEF71F16B9A99100E1E104 /* InfoPlist.strings */,
 				14DEF72216B9A99100E1E104 /* main.m */,
 				14DEF72416B9A99100E1E104 /* Checklist-Prefix.pch */,
-				14DEF72816B9A99100E1E104 /* Default.png */,
-				14DEF72A16B9A99100E1E104 /* Default@2x.png */,
 				14DEF72C16B9A99100E1E104 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
@@ -176,12 +176,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				14DEF72116B9A99100E1E104 /* InfoPlist.strings in Resources */,
-				14DEF72916B9A99100E1E104 /* Default.png in Resources */,
-				14DEF72B16B9A99100E1E104 /* Default@2x.png in Resources */,
 				14DEF72D16B9A99100E1E104 /* Default-568h@2x.png in Resources */,
 				14DEF73016B9A99100E1E104 /* MainStoryboard.storyboard in Resources */,
 				140A7D5416C9722D0060282A /* Icon.png in Resources */,
 				140A7D5716C972430060282A /* Icon@2x.png in Resources */,
+				9DBB713116CC06FA00111533 /* Default.png in Resources */,
+				9DBB713216CC06FA00111533 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

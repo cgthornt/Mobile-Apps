@@ -18,6 +18,31 @@
     NSMutableArray *items;
 }
 
+- (void) tableViewControllerDidCancel:(TableViewController *)controller {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void) tableViewController:(TableViewController *)controller didFinishAddingItem:(ChecklistItem *)item {
+    int newRowIndex = [items count];
+    [items addObject:item];
+    NSIndexPath *indexPath= [NSIndexPath indexPathForRow:newRowIndex inSection:0];
+    NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
+    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self saveChecklistItems];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+// We need to let our new controller know we plan on being the delegate for it
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"AddItem"]) {
+        UINavigationController *navigationController = segue.destinationViewController;
+        TableViewController *controller = (TableViewController *) navigationController.topViewController;
+        controller.delegate = self;
+    }
+}
+
+
 // Save items
 - (void) saveChecklistItems {
     NSMutableData *data = [[NSMutableData alloc] init];
@@ -40,7 +65,7 @@
     } else {
         ChecklistItem *item;
         items = [[NSMutableArray alloc] initWithCapacity:20];
-        for(int i = 0; i < 55; i++) {
+        for(int i = 0; i < 5; i++) {
             item = [[ChecklistItem alloc] init];
             item.text = [NSString stringWithFormat:@"I'm cell %d", i];
             
