@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="5B7-rX-a7L">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+    </dependencies>
+    <scenes>
+        <!--Checklist View Controller - Checklist-->
+        <scene sceneID="HKp-Uc-Wud">
+            <objects>
+                <tableViewController id="TZx-9d-xLo" customClass="ChecklistViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="oDi-2N-cE6">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChecklistItem" id="Ylm-gx-LEc">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="12" contentMode="left" text="Checklist Item" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2P-ye-QIo">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="263" id="ewT-uN-dW4"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="F2P-ye-QIo" firstAttribute="leading" secondItem="Ylm-gx-LEc" secondAttribute="leading" constant="17" id="Ar0-nV-MaN"/>
+                                    <constraint firstItem="F2P-ye-QIo" firstAttribute="top" secondItem="Ylm-gx-LEc" secondAttribute="top" constant="11" id="Xhc-vu-QT5"/>
+                                </constraints>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="TZx-9d-xLo" id="anv-aG-OZ4"/>
+                            <outlet property="delegate" destination="TZx-9d-xLo" id="SbI-Bs-Fbr"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Checklist" id="BfW-i4-u6B">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Qpc-Rq-n7L">
+                            <connections>
+                                <action selector="addItem:" destination="TZx-9d-xLo" id="hDK-bs-jUs"/>
+                                <segue destination="eOz-A3-PaF" kind="modal" identifier="AddItem" id="8Ju-SA-nBD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0h5-4H-dXS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="714" y="68"/>
+        </scene>
+        <!--Table View Controller - Add Item-->
+        <scene sceneID="swP-x5-YSc">
+            <objects>
+                <tableViewController id="bfl-E0-xaR" customClass="TableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="hQE-Li-GvX">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="2Zd-AV-mNP">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="IoT-E0-oLK">
+                                        <rect key="frame" x="0.0" y="10" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Item Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gQh-Nu-xeA">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="260" id="EEu-HH-lnh"/>
+                                                        <constraint firstAttribute="height" constant="30" id="XXR-bd-VXF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="gQh-Nu-xeA" firstAttribute="centerY" secondItem="IoT-E0-oLK" secondAttribute="centerY" type="default" id="X1O-Ba-Duf"/>
+                                            <constraint firstItem="gQh-Nu-xeA" firstAttribute="centerX" secondItem="IoT-E0-oLK" secondAttribute="centerX" type="default" id="e1W-3u-8oh"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="bfl-E0-xaR" id="eZ9-ai-p9W"/>
+                            <outlet property="delegate" destination="bfl-E0-xaR" id="C1X-ZB-DN5"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Item" id="c2t-sX-NS0">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="2as-fs-tlu">
+                            <connections>
+                                <action selector="Cancel:" destination="bfl-E0-xaR" id="eF3-OP-Tua"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="py9-Av-rOL">
+                            <connections>
+                                <action selector="Save:" destination="bfl-E0-xaR" id="7mX-j5-Qn7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textField" destination="gQh-Nu-xeA" id="FBr-8a-yJL"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U9j-Bi-4Hz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1683" y="68"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QFp-p7-fpg">
+            <objects>
+                <navigationController id="5B7-rX-a7L" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P67-1u-cdK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TZx-9d-xLo" kind="relationship" relationship="rootViewController" id="vGj-iC-cUc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zlI-BI-VXW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="310" y="68"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kAv-sB-F1J">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hq3-dz-Cna" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="eOz-A3-PaF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yC5-CC-NkE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bfl-E0-xaR" kind="relationship" relationship="rootViewController" id="bkP-fS-Uyf"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1157" y="68"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
