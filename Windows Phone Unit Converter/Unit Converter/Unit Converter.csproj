@@ -98,6 +98,8 @@
     </Compile>
     <Compile Include="Converters\BaseConverter.cs" />
     <Compile Include="Converters\Length.cs" />
+    <Compile Include="Converters\Mass.cs" />
+    <Compile Include="Converters\Volume.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

@@ -46,5 +46,15 @@ namespace Unit_Converter
             NavigationService.Navigate(new Uri("/Convert.xaml", UriKind.Relative));
         }
 
+        private void VolumeButton_Click(object sender, RoutedEventArgs e)
+        {
+            handleUnitClick(new Volume());
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            handleUnitClick(new Mass());
+        }
+
     }
 }
