@@ -43,7 +43,7 @@ namespace Unit_Converter
         private void handleUnitClick(BaseConverter converter)
         {
             LastConverter = converter;
-            NavigationService.Navigate(new Uri("/", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Convert.xaml", UriKind.Relative));
         }
 
     }

@@ -12,9 +12,9 @@ namespace Unit_Converter.Converters {
      */
     public abstract class BaseConverter {
 
-        private Dictionary<String, double> _unitDefintions;
+        private Dictionary<String, decimal> _unitDefintions;
 
-        public Dictionary<String, double> UnitDefinitions {
+        public Dictionary<String,decimal> UnitDefinitions {
             get {
                 if (_unitDefintions == null) _unitDefintions = getUnitDefinitions();
                 return _unitDefintions;
@@ -30,7 +30,7 @@ namespace Unit_Converter.Converters {
             get {
                 if (_unitDefinitionKeys == null) {
                     _unitDefinitionKeys = new List<String>();
-                    foreach (KeyValuePair<String, double> pair in UnitDefinitions)
+                    foreach (KeyValuePair<String, decimal> pair in UnitDefinitions)
                         _unitDefinitionKeys.Add(pair.Key);
                 }
                 return _unitDefinitionKeys;
@@ -41,7 +41,7 @@ namespace Unit_Converter.Converters {
          * Get a hashtable of unit definitions. This must be in the format of:
          *    "Unit Length" => "Base Unit"
          */
-        public abstract Dictionary<String, double> getUnitDefinitions();
+        public abstract Dictionary<String, decimal> getUnitDefinitions();
 
         /**
          * Defines the name of the conversion, i.e., "Length"
@@ -53,12 +53,12 @@ namespace Unit_Converter.Converters {
         /**
          * Take two inputs - the origin unit and target. We use info from the 
          */
-        public double doConversion(String originConversion, String targetConversion, double originValue) {
+        public decimal doConversion(String originConversion, String targetConversion, decimal originValue) {
             if (!UnitDefinitions.ContainsKey(originConversion)) return -1;
             if (!UnitDefinitions.ContainsKey(targetConversion)) return -1;
-            double oneToOrigin = UnitDefinitions[originConversion];  // This means that "1 origin unit = 231.12 base units"
-            double baseUnits = originValue / oneToOrigin;            // Convert to base units
-            return baseUnits * UnitDefinitions[targetConversion];    // Convert to the target unit
+            decimal oneToOrigin = UnitDefinitions[originConversion];  // This means that "1 origin unit = 231.12 base units"
+            decimal baseUnits = originValue * oneToOrigin;            // Convert to base units
+            return baseUnits / UnitDefinitions[targetConversion];    // Convert to the target unit
         }
     
     }

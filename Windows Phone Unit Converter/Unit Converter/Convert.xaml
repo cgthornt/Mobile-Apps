@@ -6,12 +6,13 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True" Loaded="OnLoad">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -23,12 +24,21 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="Unit Converter" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock x:Name="PageTitle" Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-
+            <toolkit:ListPicker x:Name="OriginUnit"
+                Header="Origin Unit"
+                Margin="10,10,235,497" SelectionChanged="OriginChanged"></toolkit:ListPicker>
+            <toolkit:ListPicker x:Name="TargetUnit"
+            	Header="To"
+            	Margin="241,10,10,497" SelectionChanged="TargetChanged"/>
+            <TextBox x:Name="TargetUnitAmount" 
+                HorizontalAlignment="Left" Height="72" Margin="0,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" TextChanged="OriginAmountChanged" InputScope="Number"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,110,0,0" TextWrapping="Wrap" Text="Amount" VerticalAlignment="Top" RenderTransformOrigin="0.599,-3.222"/>
+            <TextBlock x:Name="ResultAmount" HorizontalAlignment="Left" Margin="10,214,0,0" TextWrapping="Wrap" Text="0 Units" VerticalAlignment="Top" Width="408" FontWeight="Bold"/>
         </Grid>
     </Grid>
 
