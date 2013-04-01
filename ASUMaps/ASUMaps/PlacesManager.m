@@ -43,7 +43,7 @@ static PlacesManager *theManager;
                                                    cacheName:@"locationListCache"];
     
     NSError *error;
-    BOOL success = [fetchController performFetch:&error];
+    [fetchController performFetch:&error];
     return fetchController;
 }
 
@@ -64,6 +64,18 @@ static PlacesManager *theManager;
     }
     
     return self;
+}
+
+-(NSArray*) getAllLocations {
+    Storage *storage = [Storage sharedStorage];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    fetchRequest.entity = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:storage.managedObjectContext];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lon" ascending:YES];
+    fetchRequest.sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+    NSError *error;
+    return [[storage managedObjectContext] executeFetchRequest:fetchRequest error:&error];
 }
 
 

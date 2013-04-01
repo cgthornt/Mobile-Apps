@@ -27,6 +27,11 @@
                  context:NULL];
 }
 
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self addPlaces];
+}
+
 -(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if([keyPath isEqualToString:@"selectedPlace"]) {
         [self moveToSelectedPlace];
@@ -56,6 +61,16 @@
 -(void) dealloc {
     PlacesManager *manager = [PlacesManager sharedPlacesManager];
     [manager removeObserver:self forKeyPath:@"selectedPlace"];
+}
+
+-(void) addPlaces {
+    // Remove existing annotations
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    PlacesManager *placesManager = [PlacesManager sharedPlacesManager];
+    for(Location *p in [placesManager getAllLocations]) {
+        PlaceAnnotation *annot = [[PlaceAnnotation alloc] initWithInfo:p];
+        [self.mapView addAnnotation:annot];
+    }
 }
 
 @end

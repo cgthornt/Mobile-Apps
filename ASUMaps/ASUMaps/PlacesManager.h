@@ -10,11 +10,12 @@
 #import "Storage.h"
 #import "Location.h"
 
+
 @interface PlacesManager : NSObject
 
 @property (nonatomic, strong) Location *selectedPlace;
 
 +(PlacesManager*) sharedPlacesManager;
 -(NSFetchedResultsController*) fetchControllerForLocations;
-
+-(NSArray*) getAllLocations;
 @end
