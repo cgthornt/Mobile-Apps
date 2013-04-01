@@ -10,7 +10,7 @@
 
 
 @interface PlaceAnnotation ()
-//@property (nonatomic, strong) Location *placeInfo;
+@property (nonatomic, strong) Location *placeInfo;
 @end
 
 @implementation PlaceAnnotation
@@ -19,7 +19,6 @@
 // Q: Why didn't I synthesize coordinate?  Note that it's readonly.
 // A: I don't want to synthesize it because I am writing the getter
 //    method myself down below.
-/*
 
 -(id)initWithInfo:(Location*)info {
 	if (self = [super init]) {
@@ -49,5 +48,5 @@
 // when I am deallocated, I want to release my reference to the placeInfo
 -(void) dealloc {
 	self.placeInfo = nil;
-} */
+} 
 @end

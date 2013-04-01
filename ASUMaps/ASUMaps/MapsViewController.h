@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import "PlacesManager.h"
+#import "Location.h"
 
 @interface MapsViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @end

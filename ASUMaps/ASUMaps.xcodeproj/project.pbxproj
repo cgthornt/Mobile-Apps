@@ -25,6 +25,8 @@
 		9D4D95CA1703BA9200ECA626 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4D95C91703BA9200ECA626 /* CoreData.framework */; };
 		9D8FE7B11709F2060026C0F7 /* MapData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FE7AF1709F2060026C0F7 /* MapData.xcdatamodeld */; };
 		9D8FE7B41709F3950026C0F7 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FE7B31709F3950026C0F7 /* Location.m */; };
+		9D8FE7B71709F4A30026C0F7 /* PlacesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FE7B61709F4A30026C0F7 /* PlacesManager.m */; };
+		9D8FE7BA1709F5CE0026C0F7 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FE7B91709F5CE0026C0F7 /* ListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,10 @@
 		9D8FE7B01709F2060026C0F7 /* MapData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MapData.xcdatamodel; sourceTree = "<group>"; };
 		9D8FE7B21709F3950026C0F7 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		9D8FE7B31709F3950026C0F7 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		9D8FE7B51709F4A30026C0F7 /* PlacesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesManager.h; sourceTree = "<group>"; };
+		9D8FE7B61709F4A30026C0F7 /* PlacesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesManager.m; sourceTree = "<group>"; };
+		9D8FE7B81709F5CE0026C0F7 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		9D8FE7B91709F5CE0026C0F7 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +146,8 @@
 				9D8FE7AF1709F2060026C0F7 /* MapData.xcdatamodeld */,
 				9D8FE7B21709F3950026C0F7 /* Location.h */,
 				9D8FE7B31709F3950026C0F7 /* Location.m */,
+				9D8FE7B51709F4A30026C0F7 /* PlacesManager.h */,
+				9D8FE7B61709F4A30026C0F7 /* PlacesManager.m */,
 			);
 			name = Misc;
 			sourceTree = "<group>";
@@ -157,6 +165,8 @@
 			children = (
 				9D4D95B41703B8EB00ECA626 /* MapsViewController.h */,
 				9D4D95B51703B8EB00ECA626 /* MapsViewController.m */,
+				9D8FE7B81709F5CE0026C0F7 /* ListViewController.h */,
+				9D8FE7B91709F5CE0026C0F7 /* ListViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -235,6 +245,8 @@
 				9D4D95C11703B91500ECA626 /* Storage.m in Sources */,
 				9D8FE7B11709F2060026C0F7 /* MapData.xcdatamodeld in Sources */,
 				9D8FE7B41709F3950026C0F7 /* Location.m in Sources */,
+				9D8FE7B71709F4A30026C0F7 /* PlacesManager.m in Sources */,
+				9D8FE7BA1709F5CE0026C0F7 /* ListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

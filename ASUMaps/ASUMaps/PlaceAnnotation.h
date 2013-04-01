@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
-// #import "Location.h"
+#import "Location.h"
 
 @interface PlaceAnnotation : NSObject <MKAnnotation>
 
@@ -16,5 +16,5 @@
 
 
 
-// -(id)initWithInfo:(Location*)info;
+-(id)initWithInfo:(Location*)info;
 @end

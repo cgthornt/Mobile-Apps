@@ -9,7 +9,7 @@
 #import "Storage.h"
 
 #define MODEL_NAME @"MapData"
-#define DATABASE_FILE_NAME @""
+#define DATABASE_FILE_NAME @"MapData.sqlite"
 
 @implementation Storage
 

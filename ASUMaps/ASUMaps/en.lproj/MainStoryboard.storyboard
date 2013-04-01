@@ -4,31 +4,43 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Maps View Controller-->
+        <!--Maps View Controller - View Map-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="MapsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UUY-ar-mqW"/>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UUY-ar-mqW" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="Sg2-bb-pwY"/>
+                            <constraint firstItem="UUY-ar-mqW" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="heo-Ua-qJi"/>
+                            <constraint firstItem="UUY-ar-mqW" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="n9a-DQ-tY0"/>
+                            <constraint firstItem="UUY-ar-mqW" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="vye-8M-B09"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="CeP-5D-mjJ"/>
+                    <navigationItem key="navigationItem" title="View Map" id="CeP-5D-mjJ"/>
+                    <connections>
+                        <outlet property="mapView" destination="UUY-ar-mqW" id="luf-hZ-cfd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1330" y="132"/>
         </scene>
-        <!--Table View Controller - Select Wisely-->
+        <!--List View Controller - Select Wisely-->
         <scene sceneID="ozu-K8-rzj">
             <objects>
-                <tableViewController id="ZK0-yO-Scc" sceneMemberID="viewController">
+                <tableViewController id="ZK0-yO-Scc" customClass="ListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="tkz-pZ-8Tz">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="LNg-he-KJJ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlaceCell" id="LNg-he-KJJ">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -72,8 +84,17 @@
         </scene>
     </scenes>
     <classes>
+        <class className="ListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListViewController.h"/>
+        </class>
         <class className="MapsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MapsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
