@@ -1,5 +1,5 @@
 //
-//  WelcomeController.h
+//  SelectUnitController.h
 //  Converter Pro
 //
 //  Created by Christopher Thornton on 4/22/13.
@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "Conversion.h"
 
-@interface WelcomeController : UITableViewController
+@interface SelectUnitController : UITableViewController
 
-@property (nonatomic) NSMutableDictionary* conversionTable;
-@property (nonatomic) NSArray *conversions;
 
+
+@property Conversion* currentConversion;
+@property NSArray* availabeUnits;
 
 
 @end

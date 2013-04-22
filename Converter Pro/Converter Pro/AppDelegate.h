@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Conversion.h"
+#import "CLength.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+
+/**
+ * Should be used to initialize a bunch of conversions!
+ */
+- (void) initializeConversions;
 
 @end

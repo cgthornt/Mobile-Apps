@@ -10,4 +10,9 @@
 
 @interface CLength : Conversion
 
+@property BOOL didDoLoading;
+
+@end
+
+@interface CMass : Conversion
 @end

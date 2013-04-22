@@ -8,114 +8,90 @@
 
 #import "WelcomeController.h"
 
-@interface WelcomeController ()
 
+// This is the section index that contains the "categories" you can select.
+#define CONVERSION_SECTION 0
+
+@interface WelcomeController ()
 @end
 
 @implementation WelcomeController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize conversionTable;
+@synthesize conversions;
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+// We want to load and sort everything!
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
-    // Configure the cell...
+    conversionTable = [Conversion availableConversions];
+    conversions = Conversion.sortedConversions;
+}
+
+
+/**
+// This should be auto-determined by the storyboard. Let's keep this here for now, but commented
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+} 
+ */
+
+// A fun bug here:
+// If in the interface builder, there are less placeholders than actual amounts, then this will crash with this error:
+//
+//      Terminating app due to uncaught exception 'NSRangeException', reason: '*** -[__NSArrayI objectAtIndex:]: index 1 beyond bounds [0 .. 0]'
+//
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSInteger parent = [super tableView: tableView numberOfRowsInSection:section];
+   if(section == CONVERSION_SECTION) 
+        return [conversions count]; 
+    return parent;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"ConversionCell";
+    
+    // Use the already made static cells in the storyboard except for our conversion section
+    if([indexPath section] != CONVERSION_SECTION)
+        return [super tableView: tableView cellForRowAtIndexPath:indexPath];
+    
+    
+    
+    // Attempt to find an already-created cell
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    // If we could not find the cell, make a new one and let it be re-used
+    if(cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        [cell setAccessoryType: UITableViewCellAccessoryDisclosureIndicator];
+    }
+    
+    // We want to get the current conversion selected
+    Conversion *currentConversion = [conversions objectAtIndex:[indexPath row]];
+    
+    // Now configure the cell
+    cell.textLabel.text = [currentConversion conversionName];
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // If not using conversion section, then return! Let the segue do the work
+    if(indexPath.section != CONVERSION_SECTION)
+        return;
+    
+    NSInteger row = [indexPath row];
+    
+    // Get currently selected conversion
+    Conversion *current = [conversions objectAtIndex: row];
+    [Conversion setCurrentConversion:current];
+    
+    // Now we can segue it!
+    [self performSegueWithIdentifier:@"ConvertSegue" sender:current];
+    
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
 
 @end
