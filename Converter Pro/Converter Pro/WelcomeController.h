@@ -1,13 +1,13 @@
 //
-//  ViewController.h
+//  WelcomeController.h
 //  Converter Pro
 //
-//  Created by Christopher Thornton on 4/15/13.
+//  Created by Christopher Thornton on 4/22/13.
 //  Copyright (c) 2013 Christopher Thornton. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface WelcomeController : UITableViewController
 
 @end
