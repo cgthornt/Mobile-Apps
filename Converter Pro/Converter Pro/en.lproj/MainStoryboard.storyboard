@@ -9,7 +9,7 @@
             <objects>
                 <tableViewController id="80O-sV-CBi" customClass="SelectUnitController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Trq-qt-gl8">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -319,7 +319,7 @@
                                             <constraint firstItem="ya5-Wz-fPh" firstAttribute="centerY" secondItem="aFk-os-onb" secondAttribute="centerY" type="default" id="sdS-HS-br9"/>
                                         </constraints>
                                         <connections>
-                                            <segue destination="80O-sV-CBi" kind="push" id="ngW-P4-3Ar"/>
+                                            <segue destination="80O-sV-CBi" kind="modal" identifier="FromSelect" modalTransitionStyle="coverVertical" id="ngW-P4-3Ar"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="mFi-bi-lz6">
@@ -340,7 +340,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="LzH-bj-frF"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation" keyboardAppearance="alert" returnKeyType="done"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="done"/>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -376,7 +376,7 @@
                                             <constraint firstItem="uWX-tK-kyF" firstAttribute="top" secondItem="may-an-26j" secondAttribute="top" constant="12" id="otD-Gp-cAp"/>
                                         </constraints>
                                         <connections>
-                                            <segue destination="80O-sV-CBi" kind="push" id="0A8-Fh-INa"/>
+                                            <segue destination="80O-sV-CBi" kind="modal" identifier="ToSelect" modalTransitionStyle="coverVertical" id="0A8-Fh-INa"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -411,11 +411,19 @@
                             <outlet property="delegate" destination="ya0-0E-4Rd" id="9ga-PC-ilE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Convert" id="51r-ZV-Cbn"/>
+                    <navigationItem key="navigationItem" title="Convert" id="51r-ZV-Cbn">
+                        <barButtonItem key="rightBarButtonItem" title="Calculate" id="4RQ-ci-ty9">
+                            <connections>
+                                <action selector="calculatePressed:" destination="ya0-0E-4Rd" id="dJH-Ur-7hJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="calculateButton" destination="4RQ-ci-ty9" id="GH4-zE-zv8"/>
                         <outlet property="fromUnitAmount" destination="S5u-95-GHt" id="me5-Hf-kwq"/>
                         <outlet property="fromUnitLabel" destination="ya5-Wz-fPh" id="7iy-NY-bbQ"/>
                         <outlet property="resultUnitLabel" destination="6PP-2x-eGb" id="U1D-rz-nyL"/>
+                        <outlet property="toLabelUnit" destination="uWX-tK-kyF" id="ctp-1S-FMR"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qH5-t8-KQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -475,9 +483,13 @@
         <class className="ConvertController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ConvertController.h"/>
             <relationships>
+                <relationship kind="action" name="calculatePressed:"/>
+                <relationship kind="action" name="editingBegan:"/>
+                <relationship kind="outlet" name="calculateButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="fromUnitAmount" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="fromUnitLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="resultUnitLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="toLabelUnit" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">

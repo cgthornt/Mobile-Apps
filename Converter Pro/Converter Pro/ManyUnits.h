@@ -9,10 +9,10 @@
 #import "Conversion.h"
 
 @interface CLength : Conversion
-
-@property BOOL didDoLoading;
-
 @end
 
 @interface CMass : Conversion
+@end
+
+@interface CVolume : Conversion
 @end

@@ -31,10 +31,29 @@ typedef void (^conversionBlock)(NSMutableArray*);
 @property (nonatomic, strong) NSMutableDictionary *units;
 
 /**
- * The last selected unit. NULL -> not selected!
+ * The last selected from unit
  */
+@property NSString* currentFromUnit;
+
+@property NSString* currentToUnit;
+
 @property NSString* lastSelectedUnit;
 
+
+- (NSDecimalNumber*) currentFromBase;
+- (NSDecimalNumber*) currentToBase;
+
+/**
+ * Updates from and to units
+ */
+- (void) updateUnitsFrom: (NSString*) from andTo: (NSString*) to;
+
+
+/**
+ * Takes input as a string (floating point number string) and returns the result as
+ * a string
+ */
+- (NSString*) calculate: (NSString*) amount;
 
 /**
  * Sets the current conversion being used

@@ -32,7 +32,8 @@
     [super viewDidLoad];
     currentConversion = [Conversion currentConversion];
     availabeUnits     = currentConversion.unitKeys;
-    currentConversion.lastSelectedUnit = nil;
+    
+    NSLog(@"Current: %@, From: %@, To: %@", currentConversion.lastSelectedUnit, currentConversion.currentFromUnit, currentConversion.currentToUnit);
 }
 
 
@@ -52,9 +53,14 @@
     // Get string and set it as title
     NSString* unitName = [availabeUnits objectAtIndex: indexPath.row];
     cell.textLabel.text = unitName;
+    
+    // Add a checkmark if the current one
+    if([unitName isEqualToString: currentConversion.lastSelectedUnit]) {
+        [cell setAccessoryType: UITableViewCellAccessoryCheckmark];
+    }
+    
     return cell;
 }
-
 
 
 
@@ -64,7 +70,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     currentConversion.lastSelectedUnit = [availabeUnits objectAtIndex: indexPath.row];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+    [self dismissViewControllerAnimated: YES completion: ^(void) {
+        
+    }];
 }
 
 @end

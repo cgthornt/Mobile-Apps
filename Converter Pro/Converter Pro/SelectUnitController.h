@@ -15,6 +15,6 @@
 
 @property Conversion* currentConversion;
 @property NSArray* availabeUnits;
-
+@property NSString* segueIdentifier;
 
 @end

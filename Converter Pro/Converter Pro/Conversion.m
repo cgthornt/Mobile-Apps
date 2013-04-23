@@ -20,6 +20,11 @@ static Conversion* theCurrentConversion = nil;
 
 @synthesize units;
 
+@synthesize currentFromUnit;
+@synthesize currentToUnit;
+@synthesize lastSelectedUnit;
+// @synthesize currentAmount;
+
 
 + (void) setCurrentConversion: (Conversion*) conversion {
     theCurrentConversion = conversion;
@@ -87,13 +92,41 @@ static Conversion* theCurrentConversion = nil;
         for(id value in [self unitValues]) {
             [decimalValues addObject: [NSDecimalNumber decimalNumberWithString:value]];
         }
-        units = [NSMutableDictionary dictionaryWithObjects:[self unitValues] forKeys:[self unitKeys]];
+        units = [NSMutableDictionary dictionaryWithObjects:decimalValues forKeys:[self unitKeys]];
         
-        // Add self to available conversions
-        
-        // [dict setObject:self forKey:[self conversionName]];
+        // Set default current and from
+        currentFromUnit = [self.unitKeys objectAtIndex: 0];
+        currentToUnit   = [self.unitKeys objectAtIndex: 0];
     }
     return self;
+}
+
+
+- (void) updateUnitsFrom: (NSString*) from andTo: (NSString*) to {
+    currentFromUnit = from;
+    currentToUnit   = to;
+}
+
+- (NSDecimalNumber*) currentFromBase {
+    return [units objectForKey: currentFromUnit];
+}
+
+- (NSDecimalNumber*) currentToBase {
+    return [units objectForKey: currentToUnit];
+}
+
+- (NSString*) calculate: (NSString*) amount {
+    NSDecimalNumber *original = [NSDecimalNumber decimalNumberWithString:amount];
+    NSDecimalNumber *result   = [self doConversion:original
+           originalConversion: currentFromUnit
+             targetConversion: currentToUnit];
+    
+    float resultFloat = result.floatValue;
+    NSLog(@"Calculated %.3f from start %@, From: %@, To %@",
+          resultFloat, amount, currentFromUnit, currentToUnit);
+    
+    return [NSString stringWithFormat: @"%.3f %@",
+            resultFloat, currentToUnit];
 }
 
 
@@ -117,18 +150,27 @@ static Conversion* theCurrentConversion = nil;
 - (NSDecimalNumber*) doConversion: (NSDecimalNumber*) originalValue originalConversion: (NSString*) originalConversion targetConversion:(NSString*) targetConversion {
     
     NSDecimalNumber
-        *originalBase = [units objectForKey:targetConversion],
-        *targetBase   = [units objectForKey:originalConversion];
+    *originalBase = [units objectForKey:originalConversion];
+    
+    NSDecimalNumber
+        *targetBase   = [units objectForKey:targetConversion];
+    
     
     // Bad result!
-    if(originalBase == nil || targetBase == nil)
+    if(originalValue == nil || originalBase == nil || targetBase == nil) {
+        NSLog(@"A value returned nil!");
         return nil;
+    }
     
     // Base units. Converss the original conersion to the base units
     NSDecimalNumber *baseUnits = [originalValue decimalNumberByMultiplyingBy:originalBase];
+
     
     // Now we can return the result!
-    return [baseUnits decimalNumberByDividingBy:targetBase];
+    NSDecimalNumber *result = [baseUnits decimalNumberByDividingBy:targetBase];
+    
+    
+    return result;
     
 }
 

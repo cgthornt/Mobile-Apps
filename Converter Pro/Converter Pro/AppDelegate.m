@@ -25,6 +25,7 @@
     [Conversion initializeConversions:^(NSMutableArray* arr) {
         [arr addObject: [[CLength alloc] init]];
         [arr addObject: [[CMass alloc] init]];
+        [arr addObject: [[CVolume alloc] init]];
     }];
 }
 
