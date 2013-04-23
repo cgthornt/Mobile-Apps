@@ -32,9 +32,19 @@
     return self;
 }
 
-- (void) executeCalculation {
+- (void) executeCalculation: (BOOL) takeHistory {
     NSString *result = [currentConversion calculate: fromUnitAmount.text];
     resultUnitLabel.text = result;
+    if(takeHistory) {
+        // Take history only if calculate button is pressed
+        NSString *str = [NSString stringWithFormat:@"%@ %@ = %@",
+                         fromUnitAmount.text, fromUnitLabel.text, result];
+        
+        NSLog(@"Adding this to history: '%@'", str);
+        
+        History *h = [History instance];
+        [h push:str];
+    }
 }
 
 
@@ -68,7 +78,7 @@
     [super viewDidAppear:animated];
     NSLog(@"Hey! The view did appear!");
     [self updateValues];
-    [self executeCalculation]; // Useful when switching units
+    [self executeCalculation: NO]; // Useful when switching units
 }
 
 
@@ -118,6 +128,7 @@
 
 - (void) conversionDataLoadSuccess {
     [alert dismissWithClickedButtonIndex:1 animated:YES];
+    NSLog(@"Sweet! We be done!");
     [self finalizeLoading];
 }
 - (void) conversionDataLoadError: (NSString *) error {
@@ -140,7 +151,7 @@
 - (IBAction)calculatePressed:(id)sender {
     // Hide toolbar
     [self.view endEditing:YES];
-    [self executeCalculation];
+    [self executeCalculation:YES];
 }
 
 @end

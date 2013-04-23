@@ -26,6 +26,7 @@
         [arr addObject: [[CLength alloc] init]];
         [arr addObject: [[CMass alloc] init]];
         [arr addObject: [[CVolume alloc] init]];
+        [arr addObject: [[Currency alloc] init]];
     }];
 }
 

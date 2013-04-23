@@ -7,9 +7,12 @@
 //
 
 #import "Conversion.h"
+#import "AFJSONRequestOperation.h"
 
 @interface Currency : Conversion
 
-
+@property BOOL didDoLoading;
+@property (atomic) NSMutableArray* keyz;
+@property (atomic) NSMutableArray* vals;
 
 @end

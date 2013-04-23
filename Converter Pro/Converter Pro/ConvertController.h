@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Conversion.h"
+#import "History.h"
 
 @interface ConvertController : UITableViewController <ConversionDataLoading, UIAlertViewDelegate>
 

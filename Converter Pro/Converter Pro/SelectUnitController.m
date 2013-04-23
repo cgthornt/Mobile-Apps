@@ -57,6 +57,8 @@
     // Add a checkmark if the current one
     if([unitName isEqualToString: currentConversion.lastSelectedUnit]) {
         [cell setAccessoryType: UITableViewCellAccessoryCheckmark];
+    } else {
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
     }
     
     return cell;

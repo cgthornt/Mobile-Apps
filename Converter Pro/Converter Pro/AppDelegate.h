@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Conversion.h"
 #import "ManyUnits.h"
+#import "Currency.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

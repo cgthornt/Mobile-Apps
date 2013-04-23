@@ -136,7 +136,7 @@ static Conversion* theCurrentConversion = nil;
 - (void) loadData {  }
 
 - (NSArray*) unitKeys {
-    return [NSArray arrayWithObject:@"Key"];
+    return [NSArray arrayWithObject:@"Loading..."];
 }
 
 - (NSArray*) unitValues {

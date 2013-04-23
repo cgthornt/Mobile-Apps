@@ -430,21 +430,28 @@
             </objects>
             <point key="canvasLocation" x="1897" y="-259"/>
         </scene>
-        <!--Table View Controller - Recent Conversions-->
+        <!--Conversion History Controller - History-->
         <scene sceneID="fBu-FU-Zfb">
             <objects>
-                <tableViewController id="to9-Jg-PfY" sceneMemberID="viewController">
+                <tableViewController id="to9-Jg-PfY" customClass="ConversionHistoryController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="kUK-uh-HTI">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Tss-fZ-3zn">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellHist" textLabel="VkX-rz-lc1" style="IBUITableViewCellStyleDefault" id="Tss-fZ-3zn">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VkX-rz-lc1">
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
@@ -454,7 +461,7 @@
                             <outlet property="delegate" destination="to9-Jg-PfY" id="Stm-LW-kdO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Recent Conversions" id="kSh-fA-vFD"/>
+                    <navigationItem key="navigationItem" title="History" id="kSh-fA-vFD"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="47o-sZ-Xhm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -480,11 +487,13 @@
         </scene>
     </scenes>
     <classes>
+        <class className="ConversionHistoryController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ConversionHistoryController.h"/>
+        </class>
         <class className="ConvertController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ConvertController.h"/>
             <relationships>
                 <relationship kind="action" name="calculatePressed:"/>
-                <relationship kind="action" name="editingBegan:"/>
                 <relationship kind="outlet" name="calculateButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="fromUnitAmount" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="fromUnitLabel" candidateClass="UILabel"/>

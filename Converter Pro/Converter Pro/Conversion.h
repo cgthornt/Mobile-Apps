@@ -28,7 +28,7 @@ typedef void (^conversionBlock)(NSMutableArray*);
  *
  *      "name" => base units
  */
-@property (nonatomic, strong) NSMutableDictionary *units;
+@property (nonatomic) NSMutableDictionary *units;
 
 /**
  * The last selected from unit
