@@ -34,6 +34,7 @@
 		9DDACFBE172609890007C4D9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DDACFBD172609890007C4D9 /* libPods.a */; };
 		9DDACFC21726145B0007C4D9 /* History.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDACFC11726145B0007C4D9 /* History.m */; };
 		9DDACFC517261BE20007C4D9 /* ConversionHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDACFC417261BE20007C4D9 /* ConversionHistoryController.m */; };
+		9DDACFCA1726255B0007C4D9 /* CurrencyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDACFC91726255B0007C4D9 /* CurrencyTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,9 @@
 		9DDACFC11726145B0007C4D9 /* History.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History.m; sourceTree = "<group>"; };
 		9DDACFC317261BE20007C4D9 /* ConversionHistoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversionHistoryController.h; sourceTree = "<group>"; };
 		9DDACFC417261BE20007C4D9 /* ConversionHistoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversionHistoryController.m; sourceTree = "<group>"; };
+		9DDACFC6172624AE0007C4D9 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libPods.a; path = "Pods/build/Release-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		9DDACFC81726255B0007C4D9 /* CurrencyTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyTests.h; sourceTree = "<group>"; };
+		9DDACFC91726255B0007C4D9 /* CurrencyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyTests.m; sourceTree = "<group>"; };
 		B5F688179D4244DA813ED215 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		F0B33EDE94B84B09B50328B0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -122,6 +126,7 @@
 		9DCFF534171C886600185394 = {
 			isa = PBXGroup;
 			children = (
+				9DDACFC6172624AE0007C4D9 /* libPods.a */,
 				9DCFF546171C886600185394 /* Converter Pro */,
 				9DCFF56A171C886700185394 /* Converter ProTests */,
 				9DCFF53F171C886600185394 /* Frameworks */,
@@ -188,6 +193,8 @@
 			children = (
 				9DCFF570171C886700185394 /* Converter_ProTests.h */,
 				9DCFF571171C886700185394 /* Converter_ProTests.m */,
+				9DDACFC81726255B0007C4D9 /* CurrencyTests.h */,
+				9DDACFC91726255B0007C4D9 /* CurrencyTests.m */,
 				9DCFF56B171C886700185394 /* Supporting Files */,
 			);
 			path = "Converter ProTests";
@@ -397,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DCFF572171C886700185394 /* Converter_ProTests.m in Sources */,
+				9DDACFCA1726255B0007C4D9 /* CurrencyTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +528,7 @@
 		};
 		9DCFF579171C886700185394 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5F688179D4244DA813ED215 /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Converter Pro.app/Converter Pro";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -537,6 +546,7 @@
 		};
 		9DCFF57A171C886700185394 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5F688179D4244DA813ED215 /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Converter Pro.app/Converter Pro";
 				FRAMEWORK_SEARCH_PATHS = (

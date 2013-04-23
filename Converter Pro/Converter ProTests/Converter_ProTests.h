@@ -7,6 +7,16 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "Conversion.h"
+#import "Currency.h"
+#import "ManyUnits.h"
+
+// Shorthand assertions!
+#define AssertCalculation(conv,startAmt,startU,expectedAmt,targetU) \
+    [self assertCalculation: conv startAmount: startAmt startUnit:startU \
+        expectedAmount: expectedAmt targetUnits: targetU]
+
+
 
 @interface Converter_ProTests : SenTestCase
 

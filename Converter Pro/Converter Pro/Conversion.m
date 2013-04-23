@@ -14,7 +14,7 @@ static NSMutableDictionary *theAvailableConversions = nil;
 // Gets / sets the current conversion
 static Conversion* theCurrentConversion = nil;
 
-@class Conversion;
+// @class Conversion;
 
 @implementation Conversion
 
@@ -23,7 +23,6 @@ static Conversion* theCurrentConversion = nil;
 @synthesize currentFromUnit;
 @synthesize currentToUnit;
 @synthesize lastSelectedUnit;
-// @synthesize currentAmount;
 
 
 + (void) setCurrentConversion: (Conversion*) conversion {
@@ -133,7 +132,7 @@ static Conversion* theCurrentConversion = nil;
 - (BOOL) requiresLoading { return false; }
 
 
-- (void) loadData {  }
+- (void) loadData: (id<ConversionDataLoading>) loader { }
 
 - (NSArray*) unitKeys {
     return [NSArray arrayWithObject:@"Loading..."];

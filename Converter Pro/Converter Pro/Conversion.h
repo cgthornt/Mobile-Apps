@@ -40,13 +40,12 @@ typedef void (^conversionBlock)(NSMutableArray*);
 @property NSString* lastSelectedUnit;
 
 
-- (NSDecimalNumber*) currentFromBase;
-- (NSDecimalNumber*) currentToBase;
+
 
 /**
  * Updates from and to units
  */
-- (void) updateUnitsFrom: (NSString*) from andTo: (NSString*) to;
+// - (void) updateUnitsFrom: (NSString*) from andTo: (NSString*) to;
 
 
 /**
